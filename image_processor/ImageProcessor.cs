@@ -20,15 +20,15 @@ class ImageProcessor {
         Parallel.ForEach(filenames, (imagePath) =>
         {
             {
-                // For each image file create a new Bitmap object
+                // 
                 Bitmap image = new Bitmap(imagePath);
 
-                // Calculate new thumbnail width
+                //
                 int thumbnailWidth = image.Width / (image.Height / height);
 
                 Image thumbnail = image.GetThumbnailImage(thumbnailWidth, height, () => { return false; }, IntPtr.Zero);
 
-                // Extract filename from path and edit for new save
+                //
                 string[] nameSplit = imagePath.Split(new Char[] {'/', '.'});
                 String newFilename = nameSplit[nameSplit.Length - 2] + "_th." +
                                         nameSplit[nameSplit.Length - 1];
